@@ -1,6 +1,8 @@
 node {
     def app
+    WORKSPACE = 'C://WINDOWS//system32//config//systemprofile//AppData//Local//Jenkins//.jenkins//workspace//scripted-hello-world-pipeline//'
     def workspace = WORKSPACE
+    echo "Current workspace is $workspace"
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -19,9 +21,6 @@ node {
     }
 
     stage('Test image') {
-        environment {
-            HOME='C://WINDOWS//system32//config//systemprofile//AppData//Local//Jenkins//.jenkins//workspace//scripted-hello-world-pipeline//'
-        }
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
