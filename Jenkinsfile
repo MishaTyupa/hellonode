@@ -2,7 +2,7 @@ node {
     def app
     def workspace = pwd()
     echo "Current workspace is $workspace"
-    tools {nodejs "node"}
+
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
