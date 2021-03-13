@@ -2,15 +2,16 @@ node {
     def app
     def workspace = pwd()
     echo "Current workspace is $workspace"
+    tools {nodejs "node"}
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
 
-   /* stage('Install dependencies') {
+   stage('Install dependencies') {
         bat  'npm install'
-    }*/
+    }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
