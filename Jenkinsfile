@@ -1,12 +1,7 @@
-node('label'){
-    //now you are on slave labeled with 'label'
-    def workspace = pwd()
-    echo "Current workspace is $workspace"
-}
-
 node {
     def app
-
+    def workspace = pwd()
+    echo "Current workspace is $workspace"
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
