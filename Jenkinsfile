@@ -17,7 +17,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("stefanscherer/node-windows")
+        app = docker.build("miketyupa/hello-world")
     }
 
     stage('Test image') {
@@ -25,7 +25,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
         echo "Current workspace is $env.WORKSPACE"
         app.inside {
-            bat 'echo "Tests passed!!!"'
+            bat "Tests passed!!!"
         }
     }
 /*
