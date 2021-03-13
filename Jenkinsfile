@@ -1,10 +1,10 @@
-dir("${env.WORKSPACE}/aQA"){
-    bat "C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\scripted-hello-world-pipeline"
-}
-
 node {
     def app
 
+    environment {
+        WORKSPACE='C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\scripted-hello-world-pipeline'
+    }
+    
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
