@@ -19,7 +19,7 @@ node {
 
         app = docker.build("miketyupa/hello-world")
 
-        echo "app:" app
+        echo "app is $app"
     }
 
    stage('Run tests') {
@@ -29,7 +29,7 @@ node {
         always { 
           junit 'test-results.xml'   
         }
-    }
+        }
    }
 
 /*
