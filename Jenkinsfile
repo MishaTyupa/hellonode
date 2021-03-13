@@ -17,19 +17,19 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("miketyupa/hello-world").MSYS_NO_PATHCONV=1
+        app = docker.build("miketyupa/hello-world")
     }
 
     stage('Test image') {
 
-        environment {
+        /*environment {
             WORKSPACE='C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\scripted-hello-world-pipeline-fuck'
-        }
+        }*/
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-        echo "env.WORKSPACE workspace is $env.WORKSPACE"
-        echo "WORKSPACE workspace is $WORKSPACE"
-        app.inside {
+        /*echo "env.WORKSPACE workspace is $env.WORKSPACE"
+        echo "WORKSPACE workspace is $WORKSPACE"*/
+        this.app.inside {
             bat 'echo "Tests passed!!!"'
         }
     }
