@@ -18,8 +18,21 @@ node {
          * docker build on the command line */
 
         app = docker.build("miketyupa/hello-world")
+
+        echo "app:" app
     }
 
+   stage('Run tests') {
+        bat  'npm test'
+
+    post { 
+        always { 
+          junit 'test-results.xml'   
+        }
+    }
+   }
+
+/*
     stage('Test image') {
 
         /*environment {
@@ -29,10 +42,10 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
         /*echo "env.WORKSPACE workspace is $env.WORKSPACE"
         echo "WORKSPACE workspace is $WORKSPACE"*/
-        this.app.inside {
+        /*app.inside {
             bat 'echo "Tests passed!!!"'
         }
-    }
+    }*/
 /*
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
