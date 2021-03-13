@@ -1,8 +1,12 @@
+node('label'){
+    //now you are on slave labeled with 'label'
+    def workspace = pwd()
+    echo "Current workspace is $workspace"
+}
+
 node {
     def app
-    WORKSPACE = 'C://WINDOWS//system32//config//systemprofile//AppData//Local//Jenkins//.jenkins//workspace//scripted-hello-world-pipeline//'
-    def workspace = WORKSPACE
-    echo "Current workspace is $workspace"
+
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -23,7 +27,7 @@ node {
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-
+        echo "Current workspace is $env.WORKSPACE"
         app.inside {
             bat 'echo "Tests passed!!!"'
         }
