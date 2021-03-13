@@ -17,18 +17,16 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("miketyupa/hello-world")
+        app = docker.build("miketyupa/hello-world").MSYS_NO_PATHCONV=1
     }
 
     stage('Test image') {
 
         environment {
             WORKSPACE='C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\scripted-hello-world-pipeline-fuck'
-            MSYS_NO_PATHCONV=1
         }
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-        echo "MSYS_NO_PATHCONV workspace is $MSYS_NO_PATHCONV"
         echo "env.WORKSPACE workspace is $env.WORKSPACE"
         echo "WORKSPACE workspace is $WORKSPACE"
         app.inside {
