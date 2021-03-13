@@ -25,7 +25,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
         echo "Current workspace is $env.WORKSPACE"
         app.inside {
-            bat "Tests passed!!!"
+            bash 'echo "Tests passed!!!"'
         }
     }
 /*
