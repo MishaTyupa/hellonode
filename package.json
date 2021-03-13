@@ -1,5 +1,5 @@
 {
-  "name": "releaseworks-hellonode",
+  "name": "miketyupa-hellonode",
   "version": "1.0.0",
   "description": "A Hello World HTTP server",
   "main": "main.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/releaseworks/hellonode/"
+    "url": "https://github.com/MishaTyupa/hellonode.git"
   },
   "keywords": [
     "node",
     "docker",
     "dockerfile"
   ],
-  "author": "academy@release.works",
+  "author": "miketyupa",
   "license": "ISC",
   "devDependencies": {
     "test": ">=0.6.0"
