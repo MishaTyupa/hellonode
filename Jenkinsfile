@@ -7,9 +7,9 @@ node {
         checkout scm
     }
 
-    stage('Install dependencies') {
-        sh 'npm install'
-    }
+   /* stage('Install dependencies') {
+        bat  'npm install'
+    }*/
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
@@ -23,7 +23,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
-            sh 'echo "Tests passed!!!"'
+            bat 'echo "Tests passed!!!"'
         }
     }
 /*
