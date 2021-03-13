@@ -1,7 +1,9 @@
 node {
     def app
-    def workspace = pwd()
-    echo "Current workspace is $workspace"
+
+    dir("${env.WORKSPACE}/aQA"){
+        bat "C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\scripted-hello-world-pipeline"
+    }
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */

@@ -1,8 +1,6 @@
 # use a node base image
 FROM node:7-onbuild
 
-WORKDIR C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\scripted-hello-world-pipeline
-
 # set maintainer
 LABEL maintainer "academy@release.works"
 
