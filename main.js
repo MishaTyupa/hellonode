@@ -1,12 +1,14 @@
-// load the http module
-var http = require('http');
+var http = require('http'),
+    fs = require('fs');
 
-// configure our HTTP server
-var server = http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello World\n");
+
+fs.readFile('./index.html', function (err, html) {
+    if (err) {
+        throw err; 
+    }       
+    http.createServer(function(request, response) {  
+        response.writeHeader(200, {"Content-Type": "text/html"});  
+        response.write(html);  
+        response.end();  
+    }).listen(8000);
 });
-
-// listen on localhost:8000
-server.listen(8000);
-console.log("Server listening at http://127.0.0.1:8000/");
