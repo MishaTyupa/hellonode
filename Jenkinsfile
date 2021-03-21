@@ -52,7 +52,7 @@ node {
 
         stage('Deploy image to Heroku') {
 
-        docker.withRegistry('https://registry.heroku.com', 'fda93d4c-6264-4c5a-bb77-fa99a131b16c') {
+        docker.withRegistry('https://registry.heroku.com', 'drmexanik7@gmail.com', 'fda93d4c-6264-4c5a-bb77-fa99a131b16c') {
             bat 'heroku container:push web'
             bat 'heroku container:release web'
         }
