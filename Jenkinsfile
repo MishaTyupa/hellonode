@@ -1,12 +1,6 @@
 node {
     def app
 
-    def herokuDeploy (herokuApp) {
-        withCredentials([[$class: 'StringBinding', credentialsId: 'HEROKU_API_KEY', variable: 'HEROKU_API_KEY']]) {
-            mvn "heroku:deploy -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D heroku.appName=${herokuApp}"
-        }
-    }
-
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
