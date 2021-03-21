@@ -1,6 +1,12 @@
 node {
     def app
 
+    def herokuDeploy (herokuApp) {
+        withCredentials([[$class: 'StringBinding', credentialsId: 'HEROKU_API_KEY', variable: 'HEROKU_API_KEY']]) {
+            mvn "heroku:deploy -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D heroku.appName=${herokuApp}"
+        }
+    }
+
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -47,6 +53,14 @@ node {
         docker.withRegistry('https://registry.hub.docker.com', '72c9639c-ac44-4105-9fe2-6b137e54b9fd') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
+        }
+    }
+
+        stage('Deploy image to Heroku') {
+
+        docker.withRegistry('https://registry.heroku.com', 'fda93d4c-6264-4c5a-bb77-fa99a131b16c') {
+            bat 'heroku container:push web'
+            bat 'heroku container:release web'
         }
     }
 }
