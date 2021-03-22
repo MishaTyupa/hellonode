@@ -16,28 +16,11 @@ node {
          * docker build on the command line */
 
         app = docker.build("miketyupa/hello-world")
-
-        echo "app is $app"
     }
 
-   stage('Run tests') {
+    stage('Run tests') {
         bat  'npm test'
-   }
-
-/*
-    stage('Test image') {
-
-        /*environment {
-            WORKSPACE='C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\scripted-hello-world-pipeline-fuck'
-        }*/
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-        /*echo "env.WORKSPACE workspace is $env.WORKSPACE"
-        echo "WORKSPACE workspace is $WORKSPACE"*/
-        /*app.inside {
-            bat 'echo "Tests passed!!!"'
-        }
-    }*/
+    }
 
     stage('Deploy image to Docker HUB') {
         /* Finally, we'll push the image with two tags:
@@ -50,17 +33,9 @@ node {
         }
     }
 
-    stage('Heroku Login') {
-        bat  'docker login --username=drmexanik7@gmail.com --password=15078cb5-fe06-4abc-94c2-55f131b38bc8 registry.heroku.com'
-    }
-        
     stage('Deploy image to Heroku') {
-
-        docker.withRegistry('https://registry.heroku.com') {
-            echo "I'm here 3"
-            //app.push("${env.BUILD_NUMBER}")
-            bat 'heroku container:push web'
-            bat 'heroku container:release web'
-        }
-    }
+        bat 'docker login --username=drmexanik7@gmail.com --password=15078cb5-fe06-4abc-94c2-55f131b38bc8 registry.heroku.com'
+        bat 'docker tag miketyupa/hello-world registry.heroku.com/infinite-escarpment-38882/web'
+        bat 'docker push registry.heroku.com/infinite-escarpment-38882/web'
+    }       
 }
