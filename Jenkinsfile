@@ -37,5 +37,6 @@ node {
         bat 'docker login --username=drmexanik7@gmail.com --password=15078cb5-fe06-4abc-94c2-55f131b38bc8 registry.heroku.com'
         bat 'docker tag miketyupa/hello-world:latest registry.heroku.com/infinite-escarpment-38882/web'
         bat 'docker push registry.heroku.com/infinite-escarpment-38882/web'
+        bat 'docker release registry.heroku.com/infinite-escarpment-38882/web'
     }       
 }
