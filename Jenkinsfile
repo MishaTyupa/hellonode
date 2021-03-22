@@ -52,9 +52,11 @@ node {
 
         stage('Deploy image to Heroku') {
 
-        docker.withRegistry('https://registry.heroku.com', '15078cb5-fe06-4abc-94c2-55f131b38bc8') {
-            bat 'heroku container:push web'
-            bat 'heroku container:release web'
+        docker.withRegistry('https://registry.heroku.com', 'drmexanik7@gmail.com', '15078cb5-fe06-4abc-94c2-55f131b38bc8') {
+            echo "I'm here"
+            app.push("${env.BUILD_NUMBER}")
+            /*bat 'heroku container:push web'
+            bat 'heroku container:release web'*/
         }
     }
 }
