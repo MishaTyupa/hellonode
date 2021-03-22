@@ -53,7 +53,7 @@ node {
         stage('Deploy image to Heroku') {
 
         docker.withRegistry(url:'https://registry.heroku.com', credentialsId: '592ff8bc-f087-4d89-84dc-d58a55864ad1') {
-            echo "I'm here 2"
+            echo "I'm here 3"
             app.push("${env.BUILD_NUMBER}")
             /*bat 'heroku container:push web'
             bat 'heroku container:release web'*/
