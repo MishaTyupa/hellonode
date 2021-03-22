@@ -50,13 +50,17 @@ node {
         }
     }
 
-        stage('Deploy image to Heroku') {
+    stage('Heroku Login') {
+        bat  'docker login --username=drmexanik7@gmail.com --password=15078cb5-fe06-4abc-94c2-55f131b38bc8 registry.heroku.com'
+    }
+        
+    stage('Deploy image to Heroku') {
 
         docker.withRegistry('https://registry.heroku.com') {
             echo "I'm here 3"
-            app.push("${env.BUILD_NUMBER}")
-            /*bat 'heroku container:push web'
-            bat 'heroku container:release web'*/
+            //app.push("${env.BUILD_NUMBER}")
+            bat 'heroku container:push web'
+            bat 'heroku container:release web'
         }
     }
 }
