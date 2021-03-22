@@ -10,8 +10,6 @@ ADD index.html ./
 
 ADD package.json ./
 
-RUN npm install -g heroku
-
 RUN npm install
 
 USER root

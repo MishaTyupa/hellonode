@@ -34,13 +34,9 @@ node {
     }
 
     stage('Deploy image to Heroku') {
-        app.login('drmexanik7@gmail.com','15078cb5-fe06-4abc-94c2-55f131b38bc8', 'registry.heroku.com')
-        app.tag('miketyupa/hello-world:latest', 'registry.heroku.com/infinite-escarpment-38882/web')
-        app.push('registry.heroku.com/infinite-escarpment-38882/web')
-        app.release('web -a infinite-escarpment-38882')
-        //bat 'docker login --username=drmexanik7@gmail.com --password=15078cb5-fe06-4abc-94c2-55f131b38bc8 registry.heroku.com'
-        //bat 'docker tag miketyupa/hello-world:latest registry.heroku.com/infinite-escarpment-38882/web'
-        //bat 'docker push registry.heroku.com/infinite-escarpment-38882/web'
-        //bat 'heroku container:release web -a infinite-escarpment-38882'
+        bat 'docker login --username=drmexanik7@gmail.com --password=15078cb5-fe06-4abc-94c2-55f131b38bc8 registry.heroku.com'
+        bat 'docker tag miketyupa/hello-world:latest registry.heroku.com/infinite-escarpment-38882/web'
+        bat 'docker push registry.heroku.com/infinite-escarpment-38882/web'
+        bat 'C:\Program Files\heroku\bin\heroku container:release web -a infinite-escarpment-38882'
     }       
 }
