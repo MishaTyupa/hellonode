@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment-musicapp-autoscaling
+  labels:
+   app  : my-scaled-musicapp-app
+   owner: MikeTyupa
+spec: 
+   replicas: 2
+   selector:
+    matchLabels:
+     project: music-pod1
+   template:
+    metadata:
+     labels:
+      project: music-pod1
+    spec:
+     containers: 
+     - name : container-music-web
+       image: miketyupa/hello-world:83
+       ports:
+       - containerPort: 5000
+
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+ name: music-app-autoscaling
+spec:
+ scaleTargetRef:
+  apiVersion: apps/v2beta1v1
+  kind: Deployment
+  name: deployment-musicapp-autoscaling
+ minReplicas: 2
+ maxReplicas: 6
+ metrics: 
+  - type: Resource
+    resource:
+     name: cpu
+     targetAverageUtilization: 70
+  - type: Resource
+    resource:
+     name: memory
+     targetAverageUtilization: 80

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment-musicapp-replicas
+  labels:
+   app  : my-scaled-musicapp-app
+   owner: MikeTyupa
+spec: 
+   replicas: 3
+   selector:
+    matchLabels:
+     project: music-pod1
+   template:
+    metadata:
+     labels:
+      project: music-pod1
+    spec:
+     containers: 
+     - name : container-web
+       image: miketyupa/hello-world:83
+       ports:
+       - containerPort: 5000

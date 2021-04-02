@@ -33,18 +33,8 @@ node {
         }
     }*/
 
-    stage('Deploy site to Heroku') {
-        //bat 'docker login --username=drmexanik7@gmail.com --password=15078cb5-fe06-4abc-94c2-55f131b38bc8 registry.heroku.com'
-        //bat 'docker tag miketyupa/hello-world:latest registry.heroku.com/infinite-escarpment-38882/web'
-        //bat 'docker push registry.heroku.com/infinite-escarpment-38882/web'
-        //bat 'heroku auth:login -i'
-        //bat 'echo drmexanik7@gmail.com'
-        //bat 'echo d222aa59-2ea3-44f2-9543-9c516fb9784e'
-        bat '@ECHO OFF'
-        bat 'set HEROKU_API_NAME="HEROKU_API_KEY"'
-        bat 'set HEROKU_API_KEY="bd28dc5d-b976-479e-8727-8c8de3cb2f23"'
-        bat '%HEROKU_API_NAME%=%HEROKU_API_KEY% heroku container:push web -a infinite-escarpment-38882'
-        bat '%HEROKU_API_NAME%=%HEROKU_API_KEY% heroku container:release web -a infinite-escarpment-38882'
-        //bat 'docker logout registry.heroku.com'
+    stage('Deploy site to K8S') {
+        bat 'kubectl apply -f k8s\\deployment-music-app-ver1.yml'
+        bat 'kubectl port-forvard deployment-musicapp-ver1 7654:5000'
     }       
 }

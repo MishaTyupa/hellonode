@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: pod-hello-world-ver3
+  labels:
+     env: prod
+     app: main
+     tier: FrontendAndBackend
+     owner: MikeTyupa
+spec: 
+  containers: 
+  -  name: container-web
+     image: miketyupa/hello-world:latest
+     ports:
+      -  containerPort: 5000
+
+  -  name: container-backend
+     image: nginx:latest
+     ports:
+      -  containerPort: 80
