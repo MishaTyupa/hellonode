@@ -18,3 +18,15 @@ spec:
        image: miketyupa/hello-world:latest
        ports:
        - containerPort: 5000
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2021-04-02T21:18:05Z"
+  name: jenkins
+  namespace: default
+  resourceVersion: "310852"
+  uid: d66d07ee-b61d-49e1-ab2b-defd82726f4e
+secrets:
+- name: jenkins-token-n4rb9
