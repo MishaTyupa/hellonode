@@ -35,7 +35,7 @@ node {
 
     stage('Deploy site to K8S') {
         bat 'kubectl version --client'
-        //bat 'kubectl apply -f k8s\\deployment-music-app-ver1.yml'
-        //bat 'kubectl port-forvard deployment-musicapp-ver1 7654:5000'
+        bat 'kubectl apply -f k8s\\deployment-music-app-ver1.yml'
+        bat 'kubectl port-forvard deployment-musicapp-ver1 7654:5000'
     }       
 }
