@@ -1,25 +1,3 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata: 
-  name: deployment-musicapp-ver1
-  labels:
-   app  : musicapp
-spec: 
-   selector:
-    matchLabels:
-     project: music-pod1
-   template:
-    metadata:
-     labels:
-      project: music-pod1
-    spec:
-     containers: 
-     - name : container-web
-       image: miketyupa/hello-world:latest
-       ports:
-       - containerPort: 5000
-
----
 apiVersion: v1
 data:
   ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCakNDQWU2Z0F3SUJBZ0lCQVRBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwdGFXNXAKYTNWaVpVTkJNQjRYRFRJeE1ETXlOekUyTkRrMU1Wb1hEVE14TURNeU5qRTJORGsxTVZvd0ZURVRNQkVHQTFVRQpBeE1LYldsdWFXdDFZbVZEUVRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT3JDClVjZEpQUStFNGVTTHFtaUhmT3JGZ25JZ0JnVkw0Q29qNHgrVVdwbUdTRVE2M2xrWWF4UlNlaERoZjBYdWxCblYKNEZJYkxSdXdkUTdZZTRYQlI3NVNwakFaZHdVZElOYmZTaHZUVnpjc09wOVhjN09Iemh5NlRJdlJ3L2JzVmZHVgo0Ri9xeEZFVitHRU5YTkg5VmV0Y1QvM0pPeERWMW5sVWJZT2hoYkJjb2ptbyt0d2pNQzVmcDRCVlVxL1VVU2pICkV0dFgwVFAvNUd5b1JpZyswelFTTi85OUhSeStNeDM1aTJTK2FBNlEvQUNJRGhDbnptSjFOSGxyUzFtWWZWa3kKalBOQ09nb0t5WDY4b3BqZEJnSlQ5eFExZis1VHorUU5uem1iQlJpNjNuZW9RbW9yV0NLbnBkdFE1ZDhMVnBPcgo0cGo5d2hoc1BpTDRDOFhTbUVVQ0F3RUFBYU5oTUY4d0RnWURWUjBQQVFIL0JBUURBZ0trTUIwR0ExVWRKUVFXCk1CUUdDQ3NHQVFVRkJ3TUNCZ2dyQmdFRkJRY0RBVEFQQmdOVkhSTUJBZjhFQlRBREFRSC9NQjBHQTFVZERnUVcKQkJRdC9ZeUExUnNmd0E1Z0x1ZElNWVRkbW5EVFdEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUExR1FObVlZSAorY0c2cWZoeWF6QlA3enEyQlJWUUoveEFtTmZzOE8zUzIyRnFjK1FCU0QzOGh5aEJER3UyN3FQZWNYcGVpMnY1CmM3dmszYUxFVFVFZ2MwZCtDbi9qV2NWbGZ0Wlg1R2RqYWFRYkxoRVUwaWs0L1Jpa0ZlbVRoaVpOUTk1dk91UVgKb2hnQUtSeTBDV2Z4MGlRMHBrZFNEUVRHY2FVVEZHUDFBOVhJVXdyVEtQNE4xZjJVcnYwS1pPWXF4R2hDQVROTApYSlUyazdCWGp3T1o3YitlWjEyWWRYWFFjVnFHT21EbFozcnowT1BxVFBhMzV3QlpHSzFqTjRxMkZxM2dhNUZVCjNsK21VRkVwMFplWmhWWE5MYU5TSjVYeGxTcWhpTDhjbjZKR1Qyd3RlRG1XbDlzR0F3bHhUbFo2dXorOVNNY1QKdHpZdEMxVHF0elBVc0E9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
@@ -54,3 +32,27 @@ metadata:
   resourceVersion: "311333"
   uid: 082398fd-101c-4ef6-9e05-ee9183e083b1
 type: kubernetes.io/service-account-token
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment-musicapp-ver1
+  labels:
+   app  : musicapp
+spec: 
+   selector:
+    matchLabels:
+     project: music-pod1
+   template:
+    metadata:
+     labels:
+      project: music-pod1
+    spec:
+     serviceAccountName: jenkins
+     containers: 
+     - name : container-web
+       image: miketyupa/hello-world:latest
+       ports:
+       - containerPort: 5000
