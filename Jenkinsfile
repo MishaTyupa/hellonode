@@ -35,7 +35,7 @@ node {
 
     stage('Deploy site to K8S') {
 
-    withKubeConfig(caCertificate: 'client.crt', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube', namespace: 'default', serverUrl: 'https://192.168.191.26:8443') {
+    withKubeConfig(caCertificate: 'apiserver.crt', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube', namespace: 'default', serverUrl: 'https://192.168.191.26:8443') {
         bat 'kubectl version --client'
         bat 'kubectl apply -f k8s\\deployment-music-app-ver1.yml'
         bat 'kubectl port-forvard deployment-musicapp-ver1 7654:5000'
