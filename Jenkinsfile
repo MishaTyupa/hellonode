@@ -34,8 +34,10 @@ node {
     }*/
 
     stage('Deploy site to K8S') {
+    withKubeConfig([credentialsId: 'minikube', serverUrl: 'https://192.168.191.26:8443']) {
         bat 'kubectl version --client'
         bat 'kubectl apply -f k8s\\deployment-music-app-ver1.yml'
         bat 'kubectl port-forvard deployment-musicapp-ver1 7654:5000'
+    }
     }       
 }

@@ -1,40 +1,3 @@
-apiVersion: v1
-data:
-  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCakNDQWU2Z0F3SUJBZ0lCQVRBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwdGFXNXAKYTNWaVpVTkJNQjRYRFRJeE1ETXlOekUyTkRrMU1Wb1hEVE14TURNeU5qRTJORGsxTVZvd0ZURVRNQkVHQTFVRQpBeE1LYldsdWFXdDFZbVZEUVRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT3JDClVjZEpQUStFNGVTTHFtaUhmT3JGZ25JZ0JnVkw0Q29qNHgrVVdwbUdTRVE2M2xrWWF4UlNlaERoZjBYdWxCblYKNEZJYkxSdXdkUTdZZTRYQlI3NVNwakFaZHdVZElOYmZTaHZUVnpjc09wOVhjN09Iemh5NlRJdlJ3L2JzVmZHVgo0Ri9xeEZFVitHRU5YTkg5VmV0Y1QvM0pPeERWMW5sVWJZT2hoYkJjb2ptbyt0d2pNQzVmcDRCVlVxL1VVU2pICkV0dFgwVFAvNUd5b1JpZyswelFTTi85OUhSeStNeDM1aTJTK2FBNlEvQUNJRGhDbnptSjFOSGxyUzFtWWZWa3kKalBOQ09nb0t5WDY4b3BqZEJnSlQ5eFExZis1VHorUU5uem1iQlJpNjNuZW9RbW9yV0NLbnBkdFE1ZDhMVnBPcgo0cGo5d2hoc1BpTDRDOFhTbUVVQ0F3RUFBYU5oTUY4d0RnWURWUjBQQVFIL0JBUURBZ0trTUIwR0ExVWRKUVFXCk1CUUdDQ3NHQVFVRkJ3TUNCZ2dyQmdFRkJRY0RBVEFQQmdOVkhSTUJBZjhFQlRBREFRSC9NQjBHQTFVZERnUVcKQkJRdC9ZeUExUnNmd0E1Z0x1ZElNWVRkbW5EVFdEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUExR1FObVlZSAorY0c2cWZoeWF6QlA3enEyQlJWUUoveEFtTmZzOE8zUzIyRnFjK1FCU0QzOGh5aEJER3UyN3FQZWNYcGVpMnY1CmM3dmszYUxFVFVFZ2MwZCtDbi9qV2NWbGZ0Wlg1R2RqYWFRYkxoRVUwaWs0L1Jpa0ZlbVRoaVpOUTk1dk91UVgKb2hnQUtSeTBDV2Z4MGlRMHBrZFNEUVRHY2FVVEZHUDFBOVhJVXdyVEtQNE4xZjJVcnYwS1pPWXF4R2hDQVROTApYSlUyazdCWGp3T1o3YitlWjEyWWRYWFFjVnFHT21EbFozcnowT1BxVFBhMzV3QlpHSzFqTjRxMkZxM2dhNUZVCjNsK21VRkVwMFplWmhWWE5MYU5TSjVYeGxTcWhpTDhjbjZKR1Qyd3RlRG1XbDlzR0F3bHhUbFo2dXorOVNNY1QKdHpZdEMxVHF0elBVc0E9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
-  namespace: ZGVmYXVsdA==
-  token: ZXlKaGJHY2lPaUpTVXpJMU5pSXNJbXRwWkNJNkltczBaelp3YlhWNFNWcG9ORWRQTjBKdVR6TjRVQzEwUzJFd2VURTVOekZpU0U1T1lVOUhZVXRLZDI4aWZRLmV5SnBjM01pT2lKcmRXSmxjbTVsZEdWekwzTmxjblpwWTJWaFkyTnZkVzUwSWl3aWEzVmlaWEp1WlhSbGN5NXBieTl6WlhKMmFXTmxZV05qYjNWdWRDOXVZVzFsYzNCaFkyVWlPaUprWldaaGRXeDBJaXdpYTNWaVpYSnVaWFJsY3k1cGJ5OXpaWEoyYVdObFlXTmpiM1Z1ZEM5elpXTnlaWFF1Ym1GdFpTSTZJbXBsYm10cGJuTXRkRzlyWlc0dFlqWnRhR1lpTENKcmRXSmxjbTVsZEdWekxtbHZMM05sY25acFkyVmhZMk52ZFc1MEwzTmxjblpwWTJVdFlXTmpiM1Z1ZEM1dVlXMWxJam9pYW1WdWEybHVjeUlzSW10MVltVnlibVYwWlhNdWFXOHZjMlZ5ZG1salpXRmpZMjkxYm5RdmMyVnlkbWxqWlMxaFkyTnZkVzUwTG5WcFpDSTZJalUzTVdReE5HUTVMVFpsTldZdE5ETmlZeTFoTWpJMExUbGpOMkkwTkdObVpUUXpNeUlzSW5OMVlpSTZJbk41YzNSbGJUcHpaWEoyYVdObFlXTmpiM1Z1ZERwa1pXWmhkV3gwT21wbGJtdHBibk1pZlEuS0pzUXpjOTREa2pUQXlrZ0t2S0dhU1NMOVp5aUZqcXk5T29QR3ZYb3liaE1MMjRjVFhJRzVwMU4wVmZQdzN5d3dOZVJwbzYxNHBKLURlT09zREhtMWhsaFZzREpCbHpxOHM3SkI3Z1J0ak5xdXVzNmhHcXZfX1NyLWtwdWw0Vk1lS0hqWmVueDctVndPN3pQMTNpVlNpTE42NGRQdFNhTDc3Z3RLS0ZZeFRkQlhtTl9ockozSE01cC1DWWZwZ3FENFhhT2stU3hub3pnQmxoM2pxaFI4Qm1IQTdLX0VOYVNISVlONXVsQThjUWFuaWFHbGtfeGlqTFM4ZTZSN2M3MjNmVlRDU0d5bWFhNERQT2VEOC1sOTAyVVlhM05adGc2WC1RNDRCMVhJLVFkaXpvZU5CQkFmWjdIOHFyMlRXNm9QQzE0aVZuZmZyVC12bzdkV2FyZWRB
-kind: Secret
-metadata:
-  annotations:
-    kubernetes.io/service-account.name: jenkins
-    kubernetes.io/service-account.uid: 571d14d9-6e5f-43bc-a224-9c7b44cfe433
-  creationTimestamp: "2021-04-02T21:28:40Z"
-  managedFields:
-  - apiVersion: v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:data:
-        .: {}
-        f:ca.crt: {}
-        f:namespace: {}
-        f:token: {}
-      f:metadata:
-        f:annotations:
-          .: {}
-          f:kubernetes.io/service-account.name: {}
-          f:kubernetes.io/service-account.uid: {}
-      f:type: {}
-    manager: kube-controller-manager
-    operation: Update
-    time: "2021-04-02T21:28:40Z"
-  name: jenkins-token-b6mhf
-  namespace: default
-  resourceVersion: "311333"
-  uid: 082398fd-101c-4ef6-9e05-ee9183e083b1
-type: kubernetes.io/service-account-token
-
----
-
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -50,7 +13,6 @@ spec:
      labels:
       project: music-pod1
     spec:
-     serviceAccountName: jenkins
      containers: 
      - name : container-web
        image: miketyupa/hello-world:latest
