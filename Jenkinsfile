@@ -51,10 +51,10 @@ OAAaqCpWt27K3a+dNmXWhBxZEeQcyxI/qtqQnXS1D1QF6G5O62+oYC1D6E9MC2SA
 TxYCWyUQV+de5fDblCMdyS0z63WZzPXiTHh53cgwKBBp+1uvqoeyc2dzIaV48PXf
 5Gt7MjaJt1RkVEIPNATpyQ1ChLYAbGhTGgzAXadqC+jSim/641SZ9JfDBl1yR4zt
 Vj96A82BuXtoboELZ4BddSsZjzw1QgexZ96DpCREO6kF1k8EV8F9ghCRAsEf7eqF
-oW9z3bXnwwOto5E4MoImd7VBA8vLtIjjAZ9Yon+hbnw9uJlUTA==''', clusterName: 'minikube', contextName: '', credentialsId: 'minikube', namespace: 'default', serverUrl: 'https://192.168.191.26:8443') {
+oW9z3bXnwwOto5E4MoImd7VBA8vLtIjjAZ9Yon+hbnw9uJlUTA==''', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'minikube', namespace: 'default', serverUrl: 'https://192.168.191.26:8443') {
         bat 'kubectl version --client'
         bat 'kubectl apply -f k8s\\deployment-music-app-ver1.yml'
         bat 'kubectl port-forvard deployment-musicapp-ver1 7654:5000'
-}
+    }
     }       
 }
