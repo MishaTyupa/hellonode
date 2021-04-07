@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment-music-nginx
+  labels:
+   app  : scaled-music-nginx-app
+   owner: MikeTyupa
+spec: 
+   replicas: 3
+   selector:
+    matchLabels:
+     project: music-pod  # Service will look for those Pods labels
+   template:
+    metadata:
+     labels:
+      project: music-pod
+    spec:
+     containers: 
+     - name : container-web
+       image: miketyupa/hello-world:83
+       ports:
+       - containerPort: 5000
+
+     - name : nginx
+       image: nginx
+       ports:
+       - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-loadbalancer
+  labels :
+    env  : prod
+    owner: MikeTyupa
+spec:
+  selector:
+    project: music-pod # Selecting Pods with those labels
+  ports:
+  - name: app-listener
+    protocol: TCP
+    port: 80 # Port on LoadBalancer
+    targetPort: 5000 # Port on Pod
+
+  - name: nginx-listener
+    protocol: TCP
+    port: 8765 # Port on LoadBalancer
+    targetPort: 80 # Port on Pod
+  type: LoadBalancer

@@ -1,0 +1,50 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata: 
+  name: ingress-hosts
+
+spec:
+ rules:
+ - host: www.main-music-app.net 
+   http:
+    paths:
+     - path: /
+       pathType: Prefix
+       backend: 
+        service: 
+         name: main
+         port:
+          number: 5000
+
+ - host: www.second-music-app.net 
+   http:
+    paths:
+     - path: /
+       pathType: Prefix
+       backend: 
+        service: 
+         name: second
+         port:
+          number: 5000
+      
+ - host: www.third-music-app.net 
+   http:
+    paths:
+     - path: /
+       pathType: Prefix
+       backend: 
+        service: 
+         name: third
+         port:
+          number: 5000
+
+ - host: www.nginx.net 
+   http:
+    paths:
+     - path: /
+       pathType: Prefix
+       backend: 
+        service: 
+         name: nginx
+         port:
+          number: 80
