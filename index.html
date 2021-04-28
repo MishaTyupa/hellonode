@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        let apiKey = '1be9a6884abd4c3ea143b59ca317c6b2';
+        $.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=' + apiKey, function(data) {
+        console.log(JSON.stringify(data, null, 2));
+        });
+    </script>
     <style>
         body {
             font: 400 15px/1.8 Lato, sans-serif;

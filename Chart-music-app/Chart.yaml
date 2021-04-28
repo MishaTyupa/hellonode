@@ -1,0 +1,7 @@
+apiVersion: v3.5.0
+name: Music-Helm-Chart
+version: 1.0.0
+
+maintainers: 
+  - name: MikeTyupa
+    email: miketyupa@gmail.com

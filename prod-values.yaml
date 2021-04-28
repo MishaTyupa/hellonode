@@ -1,0 +1,6 @@
+# prod values for my helm chart
+
+container:
+ image: miketyupa/hello-world:latest
+
+replicaCount: 4
