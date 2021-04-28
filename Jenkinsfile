@@ -35,7 +35,7 @@ node {
 
     stage('Deploy site to K8S') {
 
-    withKubeConfig([credentialsId: 'k8s-jenkins-robot', serverUrl: 'https://192.168.191.26:8443']) {
+    withKubeConfig([credentialsId: 'k8s-jenkins-robot', serverUrl: 'https://172.17.139.248:8443']) {
         bat 'kubectl version --client'
         bat 'kubectl apply -f k8s\\deployment-music-app-ver1.yml'
      }
